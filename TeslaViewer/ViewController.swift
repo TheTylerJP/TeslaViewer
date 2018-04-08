@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }()
     
     let modelSLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel.label()
         label.text = "Model S"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         label.backgroundColor = UIColor.clear
         label.textColor = UIColor.white
         label.isUserInteractionEnabled = false
-        label.text = "Roadster V1"
+        label.text = "Roadster"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     
     let modelXView: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Home", for: .normal)
+        btn.setTitle("Model X", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         if let homeImage  = UIImage(named: "model_x.png") {
             btn.setImage(homeImage, for: .normal)
@@ -104,16 +104,21 @@ class ViewController: UIViewController {
         return btn
     }()
     
-    let roadsterV1View: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "roadsterV1-2"))
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    let roadsterV1View: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Roadster", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        if let homeImage  = UIImage(named: "roadster2-0.png") {
+            btn.setImage(homeImage, for: .normal)
+        }
+        btn.addTarget(self, action: #selector(roadsterView(_:)), for:.touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
     }()
     
     let whiteModelSView: UIButton = {
         let button = UIButton()
-        button.setTitle("Home", for: .normal)
+        button.setTitle("Model S", for: .normal)
         button.setTitleColor(.white, for: .normal)
         if let homeImage  = UIImage(named: "red_model_s.png") {
             button.setImage(homeImage, for: .normal)
@@ -122,9 +127,7 @@ class ViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -138,7 +141,6 @@ class ViewController: UIViewController {
         
         view.addSubview(teslaLabel)
         setupLayout()
-        
         
         scrollView.addSubview(whiteModelSView)
         scrollView.addSubview(blueModel3View)
@@ -156,7 +158,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint(item: searchTextField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
         
         NSLayoutConstraint(item: whiteModelSView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: whiteModelSView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 370).isActive = true
+        NSLayoutConstraint(item: whiteModelSView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 390).isActive = true
         NSLayoutConstraint(item: whiteModelSView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 75).isActive = true
         NSLayoutConstraint(item: whiteModelSView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 160).isActive = true
         
@@ -167,22 +169,22 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint(item: modelXView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: modelXView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 313).isActive = true
-        NSLayoutConstraint(item: modelXView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 500).isActive = true
+        NSLayoutConstraint(item: modelXView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 300).isActive = true
         NSLayoutConstraint(item: modelXView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 117).isActive = true
         
         NSLayoutConstraint(item: modelXLabel, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: modelXLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 313).isActive = true
-        NSLayoutConstraint(item: modelXLabel, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 570).isActive = true
+        NSLayoutConstraint(item: modelXLabel, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 370).isActive = true
         NSLayoutConstraint(item: modelXLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 117).isActive = true
         
         NSLayoutConstraint(item: blueModel3View, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: blueModel3View, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 413).isActive = true
-        NSLayoutConstraint(item: blueModel3View, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 925).isActive = true
-        NSLayoutConstraint(item: blueModel3View, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 137).isActive = true
+        NSLayoutConstraint(item: blueModel3View, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 500).isActive = true
+        NSLayoutConstraint(item: blueModel3View, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 160).isActive = true
         
         NSLayoutConstraint(item: model3Label, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: model3Label, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 413).isActive = true
-        NSLayoutConstraint(item: model3Label, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 990).isActive = true
+        NSLayoutConstraint(item: model3Label, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 580).isActive = true
         NSLayoutConstraint(item: model3Label, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 137).isActive = true
         
         NSLayoutConstraint(item: roadsterV1View, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
@@ -208,21 +210,7 @@ class ViewController: UIViewController {
         teslaLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
-    
-    func assignBackground(){
-        let background = UIImage(named: "background")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
-        
-    }
-    
+
     @objc func whiteModelSView(_ sender: UIButton){
         
         self.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -241,5 +229,25 @@ class ViewController: UIViewController {
         
     }
     
+    @objc func roadsterView(_ sender: UIButton){
+        
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        let vc = RoadterController()
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    func assignBackground() {
+        
+        let background = UIImage(named: "background")
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
 }
 
